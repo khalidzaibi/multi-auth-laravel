@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContactsController;
+use App\Http\Controllers\ExternalApiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,3 +30,11 @@ Route::get('/admin/dashboard', function () {
 })->middleware(['auth:admin'])->name('admin.dashboard');
 
 require __DIR__.'/adminauth.php';
+
+Route::middleware('auth')->group(function () {
+    Route::get('contacts/import',[ContactsController::class,'index'])->name('contacts.import');
+    Route::post('contacts/store',[ContactsController::class,'store'])->name('contacts.store');
+
+    //get External API call 
+    Route::get('external/show',[ExternalApiController::class,'show'])->name('external.show');
+});

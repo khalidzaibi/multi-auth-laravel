@@ -13,14 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('external_apis', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->boolean('is_active')->default(1);
-            $table->rememberToken();
+            $table->string('api')->nullable();
+            $table->text('description')->nullable();
+            $table->string('auth')->nullable();
+            $table->string('https')->nullable();
+            $table->string('cors')->nullable();
+            $table->string('link')->nullable();
+            $table->string('category')->nullable();
             $table->timestamps();
         });
     }
@@ -32,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('external_apis');
     }
 };

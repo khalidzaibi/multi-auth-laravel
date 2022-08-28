@@ -5,7 +5,8 @@
 
 Download 
 - 1-Need to enable ;extension=gd to extension=gd in php.ini file
-- 2-composer update
-- 3-run migration php artisan migrate
-- 4-csv file in public folder for testing import data
-- 5-for Email and Cron job Testing run this command php artisan activeuser:cron
+- 2-add .env file and also databse in env
+- 3-composer update
+- 4-run migration php artisan migrate
+- 5-csv file in public folder for testing import data
+- 6-for Email and Cron job Testing run this command php artisan activeuser:cron
